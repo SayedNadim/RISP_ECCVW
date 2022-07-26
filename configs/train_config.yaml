@@ -1,0 +1,73 @@
+name: s_7_v3
+noise_type: none # random # none # constant
+n_gpu: 1
+use_gpu: 0
+
+
+train_data_loader:
+  type: TrainDataLoader
+  args:
+    dataset_path: /home/server-3090/REVERSE_ISP/data-s7
+    batch_size: 1
+    shuffle: True
+    num_workers: 1
+    debug: False
+
+
+valid_data_loader:
+  type: ValidationDataLoader
+  args:
+    dataset_path: /home/server-3090/REVERSE_ISP/data-s7
+    batch_size: 1
+    shuffle: True
+    num_workers: 1
+    debug: False
+
+
+
+model:
+  type: RISP
+  args:
+    nFeat: 64
+
+loss:
+  loss: loss
+
+metrics: [CPSNR, ssim]
+
+optimizer:
+  type: Adam
+  args:
+    lr: 0.000002503155504993244
+    betas: [
+        0.5,
+        0.999
+    ]
+#    momentum: 0.9
+    weight_decay: 0.00
+#    nesterov: True
+    amsgrad: True
+
+lr_scheduler:
+  type: ExponentialLR
+  args:
+    gamma: 0.9
+
+trainer:
+  epochs: 200
+  save_dir: saved/checkpoints
+  save_period_epoch: 1
+  validation_epoch: 1
+  load_optimizer: False
+  save_valid_render_period: 2
+  verbosity: 2
+  monitor: max CPSNR
+  tensorboardX: True
+  tensorboard_disp_freq: 1
+  log_dir: saved/runs
+  render_dir: saved/render
+  log_save_dir: saved/log_files
+
+others:
+  loss_lambda: 1
+
