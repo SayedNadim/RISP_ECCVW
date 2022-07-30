@@ -3,6 +3,7 @@ The official code for our RGB-to-RAW model in "Reverse ISP Challenge - Track 1 -
 ## To train the model:
 - Python 3.8/PyTorch 1.8
 - Install kornia (`pip install kornia`)
+- Install pyyaml (`pip install pyyaml`)
 - Modify the 'train.config' file.
 - Train the model.
 
