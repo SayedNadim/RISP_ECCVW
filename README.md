@@ -8,4 +8,4 @@ The official code for our RGB-to-RAW model in "Reverse ISP Challenge - Track 1 -
 
 ## To test the model
 - Modify the 'test.config' file.
-- Load the pre-trained model in the test script and run
+- Load the pre-trained model (args.resume) in the test script and run
