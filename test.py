@@ -81,7 +81,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--config', default='configs/test_config.yaml', type=str,
                         help='config file path (default: None)')
     parser.add_argument('-r', '--resume',
-                        default='saved/checkpoints/s_7_v3/0624_210946_best/model_best.pth',
+                        default='checkpoints/model_best.pth',
                         type=str, help='path to latest checkpoint (default: None)')
     parser.add_argument('--device', default=None, type=str, help='indices of GPUs to enable (default: all)')
     args = parser.parse_args()
